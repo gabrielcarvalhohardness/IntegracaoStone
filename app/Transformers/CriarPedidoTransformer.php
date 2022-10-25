@@ -22,7 +22,7 @@ class CriarPedidoTransformer extends Fractal\TransformerAbstract
 				'payment_setup' => [
 					'type' => $pedido->paymentSetting->paymentSetup->type,
 					'installments' => $pedido->paymentSetting->paymentSetup->installments,
-					'installments_type' => $pedido->paymentSetting->paymentSetup->installmentsType
+					'installment_type' => $pedido->paymentSetting->paymentSetup->installmentsType
 				]
 			]
 		];
