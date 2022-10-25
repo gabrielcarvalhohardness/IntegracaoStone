@@ -1,0 +1,19 @@
+{
+    "name": "gabri/integracao-stone",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gabrielcarvalhohardness",
+            "email": "gabriel@hardness.com.br"
+        }
+    ],
+    "require": {
+        "league/fractal": "^0.20.1",
+        "guzzlehttp/guzzle": "^7.0",
+        "pagarme/pagarme-php": "^4.1"
+    }
+}
