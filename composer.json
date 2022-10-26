@@ -10,10 +10,15 @@
             "name": "gabrielcarvalhohardness",
             "email": "gabriel@hardness.com.br"
         }
-    ],
+    ],    
     "require": {
         "league/fractal": "^0.20.1",
         "guzzlehttp/guzzle": "^7.0",
         "pagarme/pagarme-php": "^4.1"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
     }
 }
