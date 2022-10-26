@@ -6,8 +6,10 @@ namespace App;
 use App\Request\CriarPedido;
 use App\Request\FecharPedido;
 use App\Request\ImprimirNotaFiscal;
+use App\Response\Resposta;
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 
 class StoneClient {
@@ -31,7 +33,7 @@ class StoneClient {
 
     public function criarPedido(CriarPedido $pedido) {
 
-        $uri = 'orders';
+        $uri = 'core/v5/orders/';
 
         $body = (new Mapper)->mapCriarPedido($pedido);        
         $response = $this->enviarRequest('POST', $uri, [
@@ -64,16 +66,17 @@ class StoneClient {
     }
 
 
-    private function enviarRequest($httpMethod, $uri, $options) {
+    private function enviarRequest($httpMethod, $uri, $options) : Resposta {
 
         $uri = self::BASE_URI . '/' . $uri;
 
-        try  {
-
-            var_dump($httpMethod,$uri,$options);
+        try  {            
             $response = $this->client->request($httpMethod, $uri, $options);
-            return $response;
-        }catch(Exception $exception) {
+            return Resposta::createResponse($response->getStatusCode(), $response->getBody()->getContents());
+        } catch(ClientException $clientException) {
+            $response = $clientException->getResponse();            
+            return Resposta::createResponse($response->getStatusCode(), $response->getBody()->getContents());
+        } catch(Exception $exception) {
             throw $exception;
         }
     }

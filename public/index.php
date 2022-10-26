@@ -12,9 +12,9 @@ use App\StoneClient;
 require __DIR__ . "./../vendor/autoload.php";
 
 
-$stoneClient = new StoneClient('API_KEY');
+$stoneClient = new StoneClient('THIS_IS_MY_API_KEY');
 
-$customer = new Customer('Gabriel','Carvalho');
+$customer = new Customer('Gabriel','gabriel@hardness.com.br');
 $paymentSetup = new PaymentSetup('credit',2,'merchant');
 $paymentSetting = new PaymentSetting(true,['d6as4da6s5', '65sad4621'], 'Pedido 10',$paymentSetup);
 $pedido = new CriarPedido($customer, false,$paymentSetting);
@@ -25,12 +25,10 @@ $pedido->addItem(new Item(1990,'Chaveiro',12,'kldjw12'))
 ## Criar Pedido ##
 $response = $stoneClient->criarPedido($pedido);
 
-$code = $response->getStatusCode(); // 200
-$reason = $response->getReasonPhrase(); // OK
-$body = $response->getBody()->getContents();
-var_dump($code,$reason);
-echo "BODY";
-var_dump($body);
+echo "CONTENT" . PHP_EOL;
+var_dump($response->getContent());
+var_dump($response->isSucess());
+var_dump($response->getStatusCode());
 
 
 ## Fechar Pedido
@@ -48,4 +46,3 @@ var_dump($body);
 //                 'jpg',"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wCEAAQEBAQEBAUFBQUHBwYHBwoJCAgJCg8KCwoLCg8WDhAODhAOFhQYExITGBQjHBgYHCMpIiAiKTEsLDE+Oz5RUW0BBAQEBAQEBQUFBQcHBgcHCgkICAkKDwoLCgsKDxYOEA4OEA4WFBgTEhMYFCMcGBgcIykiICIpMSwsMT47PlFRbf/CABEIAmoCRgMBIgACEQEDEQH"
 //         );
 // $stoneClient->imprimirNotaFiscal($nota);
-
