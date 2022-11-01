@@ -6,13 +6,13 @@ use League\Fractal;
 
 class CriarPedidoTransformer extends Fractal\TransformerAbstract
 {
+	protected array $defaultIncludes = [
+        'customer'
+    ];
+
 	public function transform(CriarPedido $pedido)
 	{
-		return [
-			'customer' => [
-				'name' => $pedido->customer->name,
-				'email' => $pedido->customer->email,
-			],
+		return [			
 			'items' => $pedido->items,
 			'closed' => $pedido->closed,
 			'poi_payment_settings' => [
@@ -27,4 +27,13 @@ class CriarPedidoTransformer extends Fractal\TransformerAbstract
 			]
 		];
 	}
+	
+	public function includeCustomer(CriarPedido $pedido)
+    {
+        $customer = $pedido->customer;
+
+		if($customer === null) $this->null();
+
+        return $this->item($customer, new CustomerTransformer);
+    }
 }

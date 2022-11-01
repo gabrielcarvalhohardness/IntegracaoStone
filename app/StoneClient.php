@@ -14,8 +14,7 @@ use GuzzleHttp\RequestOptions;
 
 class StoneClient {
     private Client $client;
-    const BASE_URI = 'https://api.pagar.me';
-    private string $apiKey;
+    const BASE_URI = 'https://api.pagar.me';    
 
     public function __construct(string $apiKey)
     {        
@@ -26,9 +25,7 @@ class StoneClient {
             ],
             RequestOptions::AUTH => [$apiKey,''],
             RequestOptions::DEBUG => true
-        ]);
-
-        $this->apiKey = $apiKey;
+        ]);       
     }
 
     public function criarPedido(CriarPedido $pedido) {

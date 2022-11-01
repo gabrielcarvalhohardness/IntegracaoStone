@@ -5,7 +5,7 @@ declare (strict_types = 1);
 namespace App\Models;
 
 class PaymentSetting {
-    public $visible;
+    public bool $visible;
     public array $devices;
     public string $displayName;
     public PaymentSetup $paymentSetup;

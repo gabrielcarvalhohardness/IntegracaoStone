@@ -9,12 +9,12 @@ use App\Models\Item;
 use App\Models\PaymentSetting;
 
 class CriarPedido {
-    public Customer $customer;
+    public ?Customer $customer;
     public array $items;
     public bool $closed;
     public PaymentSetting $paymentSetting;
 
-    public function __construct(Customer $customer, bool $closed, PaymentSetting $paymentSetting)
+    public function __construct(PaymentSetting $paymentSetting,bool $closed, Customer $customer = null)
     {
         $this->customer = $customer;
         $this->items = [];

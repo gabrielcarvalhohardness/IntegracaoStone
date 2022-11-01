@@ -11,10 +11,9 @@
             "email": "gabriel@hardness.com.br"
         }
     ],    
-    "require": {
+    "require": {        
         "league/fractal": "^0.20.1",
-        "guzzlehttp/guzzle": "^7.0",
-        "pagarme/pagarme-php": "^4.1"
+        "guzzlehttp/guzzle": "^7.0"        
     },
     "config": {
         "platform": {
