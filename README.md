@@ -40,11 +40,11 @@
 
 # Dúvidas
 - É possível combinar formas de pagamento (EX: Dois cartões) no pagamento direto?
-- Teria algum material extra para integração
 - Referente a configuração do webhook, é possível configurar um webhook para cada cliente, ou seria apenas um
 - Merchant e Account Id, quando vou utilizar essas duas chaves?
 - Queria informações sobre o processo de homologação e acesso aos roteiros de teste
 - Quando estiver tudo pronto do nosso lado, quais serão os próximos passos
+- Como é o processo para habilitar o cliente a utilizar a integração?
 
 # Problemas
 - Como manter a tela em espera 
@@ -57,3 +57,19 @@ O PDV inicia o lançamento de uma nota, caso o usuário já tenha iniciado uma n
 # Run 
 docker run -d --name php-cli -v ${PWD}:/app bitnami/php-fpm
 php public/index.php
+
+
+Terminais S920 Q92
+
+Gerar mais de um pedido para a mesma nota.
+webhook é possível ter um para cada account ou um geral
+    - recomendaram o geral
+
+App de reimpressão, quando der algum problema na impressão.
+
+V128
+H384
+png
+
+
+Conciliação

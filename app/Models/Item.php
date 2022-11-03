@@ -5,7 +5,7 @@ declare (strict_types = 1);
 namespace App\Models;
 
 class Item {
-    public int $amount;
+    public $amount;
     public string $description;
     public $quantity;
     public string $code;

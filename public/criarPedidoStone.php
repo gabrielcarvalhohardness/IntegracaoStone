@@ -9,18 +9,18 @@ use App\Request\CriarPedido;
 
 require __DIR__ . "./../vendor/autoload.php";
 
-$apiKey = $argv[1];
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 
-if(empty($apiKey)) exit;
-
+$apiKey = $_ENV['ENVIRONMENT'] == 'development' ? $_ENV['API_KEY_DEVELOPMENT'] : $_ENV['API_KEY_PRODUCTION'];
 
 $stoneClient = new StoneClient($apiKey);
 
-$customer = new Customer('Gabriel');
-$paymentSetup = new PaymentSetup('credit',2,'merchant');
-$paymentSetting = new PaymentSetting(true,['a98765-4321'], 'Caixa 01',$paymentSetup);
+$customer = new Customer('Jose');
+$paymentSetup = new PaymentSetup('credit',1,'merchant');
+$paymentSetting = new PaymentSetting(true,['6G297588'], 'Caixa',$paymentSetup);
 $pedido = new CriarPedido($paymentSetting,false, $customer);
-$pedido->addItem(new Item(13.12,'Chaveiro',1,'01234a'));        
+$pedido->addItem(new Item(0.1,'HD 500',1,'3265A'));        
 
 
 ## Criar Pedido ##

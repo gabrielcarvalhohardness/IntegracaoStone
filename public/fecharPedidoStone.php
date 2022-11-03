@@ -5,16 +5,17 @@ use App\Request\FecharPedido;
 
 require __DIR__ . "./../vendor/autoload.php";
 
-$apiKey = $argv[1];
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 
-if(empty($apiKey)) exit;
+$apiKey = $_ENV['ENVIRONMENT'] == 'development' ? $_ENV['API_KEY_DEVELOPMENT'] : $_ENV['API_KEY_PRODUCTION'];
 
 
 $stoneClient = new StoneClient($apiKey);
 
 ## Fechar Pedido
 
-$fecharPedido = new FecharPedido('cus_mBloKMLnswtD4O3a','canceled');
+$fecharPedido = new FecharPedido('or_aprkLK4iGFGr20EY','canceled');
 
 $response = $stoneClient->fecharPedido($fecharPedido);
 
