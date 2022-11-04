@@ -59,6 +59,8 @@ docker run -d --name php-cli -v ${PWD}:/app bitnami/php-fpm
 php public/index.php
 
 
+
+# Anotações
 Terminais S920 Q92
 
 Gerar mais de um pedido para a mesma nota.

@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace App\Response;
 
+use JsonException;
+
 class Resposta {
     private int $statusCode;
     private $content;    
@@ -29,7 +31,22 @@ class Resposta {
 
     public static function createResponse(int $statusCode, $jsonContent) : static {
 
-        $content = json_decode(json: $jsonContent, flags:JSON_THROW_ON_ERROR);
+       $content = self::convertToJson($jsonContent);
         return new static($statusCode, $content);
+    }
+
+    private static function convertToJson($json) {
+
+        try {
+            $content = json_decode($json);
+
+            if (json_last_error() != \JSON_ERROR_NONE) {
+                throw new JsonException(json_last_error_msg());
+            }
+
+            return $content;
+        } catch(JsonException $exception) {
+           return ''; 
+        }
     }
 }

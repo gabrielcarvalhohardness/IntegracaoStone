@@ -15,7 +15,7 @@ $stoneClient = new StoneClient($apiKey);
 
 ## Fechar Pedido
 
-$fecharPedido = new FecharPedido('or_aprkLK4iGFGr20EY','canceled');
+$fecharPedido = new FecharPedido('or_5OylwotWMSaxlLDo','paid');
 
 $response = $stoneClient->fecharPedido($fecharPedido);
 
