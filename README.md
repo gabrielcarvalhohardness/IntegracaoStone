@@ -40,11 +40,17 @@
 
 # Dúvidas
 - É possível combinar formas de pagamento (EX: Dois cartões) no pagamento direto?
+  Não, a partir da próxima versão que sai em dezembro SIM
 - Referente a configuração do webhook, é possível configurar um webhook para cada cliente, ou seria apenas um
+    Sim, é possível ter um webhook para cada account ou um webhook geral por parceiro
 - Merchant e Account Id, quando vou utilizar essas duas chaves?
+    Ainda não sei
 - Queria informações sobre o processo de homologação e acesso aos roteiros de teste
+    Me passaram todo o processo e o roteiro de testes
 - Quando estiver tudo pronto do nosso lado, quais serão os próximos passos
+    Já passaram
 - Como é o processo para habilitar o cliente a utilizar a integração?
+    Também passaram manual
 
 # Problemas
 - Como manter a tela em espera 

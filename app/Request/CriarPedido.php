@@ -14,7 +14,7 @@ class CriarPedido {
     public bool $closed;
     public PaymentSetting $paymentSetting;
 
-    public function __construct(PaymentSetting $paymentSetting,bool $closed, Customer $customer = null)
+    public function __construct(Customer $customer, PaymentSetting $paymentSetting,bool $closed = false)
     {
         $this->customer = $customer;
         $this->items = [];

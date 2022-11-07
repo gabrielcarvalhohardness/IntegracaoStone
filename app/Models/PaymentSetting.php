@@ -8,9 +8,9 @@ class PaymentSetting {
     public bool $visible;
     public array $devices;
     public string $displayName;
-    public PaymentSetup $paymentSetup;
+    public ?PaymentSetup $paymentSetup;
 
-    public function __construct($visible, array $devices, string $displayName, PaymentSetup $paymentSetup)
+    public function __construct($visible, array $devices, string $displayName, ?PaymentSetup $paymentSetup = null)
     {
         $this->visible = $visible;
         $this->devices = $devices;

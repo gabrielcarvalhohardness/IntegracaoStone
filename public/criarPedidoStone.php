@@ -18,9 +18,9 @@ $stoneClient = new StoneClient($apiKey);
 
 $customer = new Customer('Hardness','suporte@hardness.com.br');
 $paymentSetup = new PaymentSetup('credit',1,'merchant');
-$paymentSetting = new PaymentSetting(true,['6G297588'], 'Caixa',$paymentSetup);
-$pedido = new CriarPedido($paymentSetting,false, $customer);
-$pedido->addItem(new Item(0.01,'HD 500',1,'3265A'));        
+$paymentSetting = new PaymentSetting(true,['6G297588'], 'Carrinho A',$paymentSetup);
+$pedido = new CriarPedido($customer,$paymentSetting);
+$pedido->addItem(new Item(0.10,'HD 500',1,'3265A'));        
 
 
 ## Criar Pedido ##
