@@ -16,15 +16,8 @@ $apiKey = $_ENV['ENVIRONMENT'] == 'development' ? $_ENV['API_KEY_DEVELOPMENT'] :
 
 $stoneClient = new StoneClient($apiKey);
 
-$customer = new Customer('Hardness','suporte@hardness.com.br');
-$paymentSetup = new PaymentSetup('credit',1,'merchant');
-$paymentSetting = new PaymentSetting(true,['6G297588'], 'Carrinho B');
-$pedido = new CriarPedido($customer,$paymentSetting);
-$pedido->addItem(new Item(0.50,'HD 500',1,'3265A'));        
-
-
-## Criar Pedido ##
-$response = $stoneClient->criarPedido($pedido);
+## Obter pedido (Rota de resiliência)
+$response = $stoneClient->obterPedido('or_0KmVYBZhAhNY6wxv');
 
 
 ## Resultado

@@ -64,8 +64,6 @@ O PDV inicia o lançamento de uma nota, caso o usuário já tenha iniciado uma n
 docker run -d --name php-cli -v ${PWD}:/app bitnami/php-fpm
 php public/index.php
 
-
-
 # Anotações
 Terminais S920 Q92
 
@@ -79,5 +77,29 @@ V128
 H384
 png
 
+Próxima integração Conciliação
 
-Conciliação
+# Pagamento Direto
+- Não é possível combinar meios de pagamento na máquina
+    - Para burla, no sistema é necessário vincular a venda a varios pedido cada um com um meio de pagamento configurado
+- É possível configurar o pagamento no PDV, o operador só necessita passar o cartão, sem configurar nada
+
+# Listagem de Pedido
+- É possível configurar o pagamento na máquina, exemplo dividir o valor em dois cartões
+- É necessário selecionar o pedido
+- Só e feita a busca da nota, quando é feita a transação se você divir o pagamento em dois meios ele só vai chamar
+a rotina de impressão da nota após o segundo meio for pago
+- O valor do pedido já vem preenchido
+- Fica na tela de pagamento até o valor total ser pago
+- É possível cobrar um valor diferente
+    - Gerando duas ocasiões (pago a maior)
+    - A principio não da para pagar menos
+
+- Transações avulsas também disparam o webhook, cria um pedido e vincula a cobrança
+
+# Dúvidas
+- Vamos utilizar um webhook geral ou um para cada cliente?
+- O que acontece se a transação falhar?
+    - Não é disparado nenhum webhook, é tudo controlado no POS
+
+

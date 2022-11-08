@@ -62,8 +62,15 @@ class StoneClient {
         return $response;
     }
 
+    public function obterPedido(string $orderId) {
+        $uri = "core/v5/orders/{$orderId}";
+        
+        $response = $this->enviarRequest('GET', $uri);
+        
+        return $response;
+    }
 
-    private function enviarRequest($httpMethod, $uri, $options) : Resposta {
+    private function enviarRequest($httpMethod, $uri, $options = []) : Resposta {
 
         $uri = self::BASE_URI . '/' . $uri;
 
